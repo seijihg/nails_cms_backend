@@ -1,0 +1,9 @@
+DEBUG=1
+SECRET_KEY=django-insecure-hmv@n_6)cm26+-9=f7=*!01$xe-^3786uwd$ft$5w)y1r$_jn5
+DJANGO_ALLOWED_HOSTS=*
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=nails_cms
+SQL_USER=debug
+SQL_PASSWORD=debug
+SQL_HOST=db
+SQL_PORT=5432
