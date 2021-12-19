@@ -1,6 +1,8 @@
 # Django
 # ------------
 Django>=3.2,<3.3
+djangorestframework==3.13.1
+django-environ==0.8.1
 
 # Wagtail
 # ------------
@@ -9,4 +11,3 @@ wagtail>=2.15,<2.16
 # Other Python deps
 # -----------------
 psycopg2-binary==2.9.2
-django-environ==0.8.1
