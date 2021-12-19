@@ -1,4 +1,0 @@
-DEBUG=1
-SECRET_KEY=django-insecure-hmv@n_6)cm26+-9=f7=*!01$xe-^3786uwd$ft$5w)y1r$_jn5
-DJANGO_ALLOWED_HOSTS=*
-DATABASE_URL=postgres://debug:debug@localhost:5432/nails_cms
