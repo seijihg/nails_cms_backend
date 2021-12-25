@@ -19,3 +19,4 @@ psycopg2-binary==2.9.2
 arrow==1.2.1
 django-timezone-field==4.2.1
 black
+pre-commit
