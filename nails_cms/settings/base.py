@@ -23,10 +23,10 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env/.dev'))
+environ.Env.read_env(os.path.join(BASE_DIR, ".env/.dev"))
 
 # False if not in os.environ because of casting above
-DEBUG = env('DEBUG')
+DEBUG = env("DEBUG")
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,7 +38,6 @@ DEBUG = env('DEBUG')
 INSTALLED_APPS = [
     "users",
     "bookings",
-
     "home",
     "search",
     "wagtail.contrib.forms",
@@ -99,8 +98,8 @@ WSGI_APPLICATION = "nails_cms.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {'default': env.db()}
-DATABASES['default']['ATOMIC_REQUESTS'] = True
+DATABASES = {"default": env.db()}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
 # Password validation
@@ -176,4 +175,5 @@ WAGTAILSEARCH_BACKENDS = {
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "http://example.com"
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = "users.User"
+WAGTAIL_USER_CUSTOM_FIELDS = ["mobile_phone_number"]

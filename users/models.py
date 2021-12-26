@@ -7,7 +7,14 @@ import arrow
 
 
 class User(AbstractUser, TimeStampedModel):
+    email = models.EmailField(unique=True)
     mobile_phone_number = models.CharField(max_length=100)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+    def __str__(self) -> str:
+        return self.email
 
 
 class Address(TimeStampedModel):

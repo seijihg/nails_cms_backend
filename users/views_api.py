@@ -1,12 +1,11 @@
 from django.core.exceptions import ObjectDoesNotExist
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from users import serializers
 from users.models import User
 from rest_framework import generics
 
-# Create your views here.
+
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.UserSerializer
@@ -21,6 +20,7 @@ class UserList(generics.ListCreateAPIView):
         try:
             User.objects.get(email__iexact=request.data.get("email"))
         except ObjectDoesNotExist:
+            request.data["username"] = request.data.get("email")
             response = super().create(request, *args, **kwargs)
             return response
         return Response(status=status.HTTP_409_CONFLICT)
