@@ -11,14 +11,15 @@ from search import views as search_views
 import users.urls
 
 urlpatterns = [
-    path('django-admin/', admin.site.urls),
-
-    path('admin/', include(wagtailadmin_urls)),
-    path('documents/', include(wagtaildocs_urls)),
-
-    path('search/', search_views.search, name='search'),
-    path('', include(users.urls, namespace='users')),
-
+    path("auth/", include("dj_rest_auth.urls")),
+    path("auth/registration/", include("dj_rest_auth.registration.urls")),
+    path("django-admin/", admin.site.urls),
+    path("admin/", include(wagtailadmin_urls)),
+    path("documents/", include(wagtaildocs_urls)),
+    path("search/", search_views.search, name="search"),
+    path("", include(users.urls, namespace="users")),
+    # path('signup/', UserSignup.as_view(), name="signup"),
+    # path('login/', UserLogin.as_view(), name="login"),
 ]
 
 
@@ -35,7 +36,6 @@ urlpatterns = urlpatterns + [
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
     path("", include(wagtail_urls)),
-
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:
     #    path("pages/", include(wagtail_urls)),

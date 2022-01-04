@@ -1,12 +1,10 @@
-from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.response import Response
-from rest_framework import status
 from users import serializers
 from users.models import User
 from rest_framework import generics
 
 
-class UserList(generics.ListCreateAPIView):
+class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.UserSerializer
     permission_classes = []
@@ -16,11 +14,14 @@ class UserList(generics.ListCreateAPIView):
         serializer = serializers.UserSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def create(self, request, *args, **kwargs):
-        try:
-            User.objects.get(email__iexact=request.data.get("email"))
-        except ObjectDoesNotExist:
-            request.data["username"] = request.data.get("email")
-            response = super().create(request, *args, **kwargs)
-            return response
-        return Response(status=status.HTTP_409_CONFLICT)
+
+class UserDetails(generics.RetrieveUpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = serializers.UserSerializer
+    permission_classes = []
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)

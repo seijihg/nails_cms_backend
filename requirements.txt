@@ -12,20 +12,45 @@ asgiref==3.4.1
     # via django
 beautifulsoup4==4.9.3
     # via wagtail
+black==21.12b0
+    # via -r requirements.in
 certifi==2021.10.8
     # via requests
+cffi==1.15.0
+    # via cryptography
+cfgv==3.3.1
+    # via pre-commit
 charset-normalizer==2.0.9
     # via requests
+click==8.0.3
+    # via black
+cryptography==36.0.1
+    # via
+    #   jwcrypto
+    #   pyjwt
+defusedxml==0.7.1
+    # via python3-openid
+deprecated==1.2.13
+    # via jwcrypto
+distlib==0.3.4
+    # via virtualenv
+dj_rest_auth==2.2.1
+    # via -r requirements.in
 django==3.2.10
     # via
     #   -r requirements.in
+    #   dj-rest-auth
+    #   django-allauth
     #   django-extensions
     #   django-filter
+    #   django-oauth-toolkit
     #   django-taggit
     #   django-timezone-field
     #   django-treebeard
     #   djangorestframework
     #   wagtail
+django-allauth==0.47.0
+    # via -r requirements.in
 django-environ==0.8.1
     # via -r requirements.in
 django-extensions==3.1.5
@@ -34,6 +59,8 @@ django-filter==21.1
     # via wagtail
 django-modelcluster==5.2
     # via wagtail
+django-oauth-toolkit==1.6.1
+    # via -r requirements.in
 django-taggit==1.5.1
     # via wagtail
 django-timezone-field==4.2.1
@@ -43,25 +70,56 @@ django-treebeard==4.5.1
 djangorestframework==3.13.1
     # via
     #   -r requirements.in
+    #   dj-rest-auth
     #   wagtail
 draftjs-exporter==2.1.7
     # via wagtail
 et-xmlfile==1.1.0
     # via openpyxl
+filelock==3.4.2
+    # via virtualenv
+gunicorn==20.1.0
+    # via -r requirements.in
 html5lib==1.1
     # via wagtail
+identify==2.4.1
+    # via pre-commit
 idna==3.3
     # via requests
+jwcrypto==1.0
+    # via django-oauth-toolkit
 l18n==2021.3
     # via wagtail
+mypy-extensions==0.4.3
+    # via black
+nodeenv==1.6.0
+    # via pre-commit
+oauthlib==3.1.1
+    # via
+    #   django-oauth-toolkit
+    #   requests-oauthlib
 openpyxl==3.0.9
     # via tablib
+pathspec==0.9.0
+    # via black
 pillow==8.4.0
     # via wagtail
+platformdirs==2.4.1
+    # via
+    #   black
+    #   virtualenv
+pre-commit==2.16.0
+    # via -r requirements.in
 psycopg2-binary==2.9.2
     # via -r requirements.in
+pycparser==2.21
+    # via cffi
+pyjwt[crypto]==2.3.0
+    # via django-allauth
 python-dateutil==2.8.2
     # via arrow
+python3-openid==3.2.0
+    # via django-allauth
 pytz==2021.3
     # via
     #   django
@@ -69,13 +127,22 @@ pytz==2021.3
     #   django-timezone-field
     #   djangorestframework
     #   l18n
+pyyaml==6.0
+    # via pre-commit
 requests==2.26.0
-    # via wagtail
+    # via
+    #   django-allauth
+    #   django-oauth-toolkit
+    #   requests-oauthlib
+    #   wagtail
+requests-oauthlib==1.3.0
+    # via django-allauth
 six==1.16.0
     # via
     #   html5lib
     #   l18n
     #   python-dateutil
+    #   virtualenv
 soupsieve==2.3.1
     # via beautifulsoup4
 sqlparse==0.4.2
@@ -84,17 +151,30 @@ tablib[xls,xlsx]==3.1.0
     # via wagtail
 telepath==0.2
     # via wagtail
+toml==0.10.2
+    # via pre-commit
+tomli==1.2.3
+    # via black
+typing-extensions==4.0.1
+    # via black
 urllib3==1.26.7
     # via requests
+virtualenv==20.13.0
+    # via pre-commit
 wagtail==2.15.1
     # via -r requirements.in
 webencodings==0.5.1
     # via html5lib
 willow==1.4
     # via wagtail
+wrapt==1.13.3
+    # via deprecated
 xlrd==2.0.1
     # via tablib
 xlsxwriter==3.0.2
     # via wagtail
 xlwt==1.3.0
     # via tablib
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools
