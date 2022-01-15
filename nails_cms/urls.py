@@ -9,6 +9,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 from search import views as search_views
 
 import users.urls
+import bookings.urls
 
 urlpatterns = [
     path("auth/", include("dj_rest_auth.urls")),
@@ -18,8 +19,7 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
     path("", include(users.urls, namespace="users")),
-    # path('signup/', UserSignup.as_view(), name="signup"),
-    # path('login/', UserLogin.as_view(), name="login"),
+    path("", include(bookings.urls, namespace="bookings")),
 ]
 
 

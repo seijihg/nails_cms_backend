@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from users import serializers
 from users.models import User
@@ -7,11 +8,12 @@ from rest_framework import generics
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.UserSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated]
 
     def list(self, request, format=None):
         queryset = self.get_queryset()
         serializer = serializers.UserSerializer(queryset, many=True)
+
         return Response(serializer.data)
 
 

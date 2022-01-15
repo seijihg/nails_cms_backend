@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import User
+from users.models import Address, User
 from django.core.validators import RegexValidator
 from django.db import transaction
 from dj_rest_auth.registration.serializers import RegisterSerializer
@@ -10,14 +10,27 @@ phone_uk_regex = RegexValidator(
 )
 
 
-class UserSerializer(serializers.ModelSerializer):
+class AddressSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Address
         fields = "__all__"
 
 
-class RegisterSerializer(RegisterSerializer):
+class UserSerializer(serializers.ModelSerializer):
+    address_list = AddressSerializer(many=True, read_only=True)
 
+    class Meta:
+        model = User
+        fields = [
+            "email",
+            "first_name",
+            "last_name",
+            "mobile_phone_number",
+            "address_list",
+        ]
+
+
+class RegisterSerializer(RegisterSerializer):
     mobile_phone_number = serializers.CharField(
         validators=[phone_uk_regex], allow_blank=False
     )
